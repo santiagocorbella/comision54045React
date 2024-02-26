@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Template</title>
+</head>
+<body>
+   <h1>
+    Welcome to Coderhouse
+   </h1>
+   <!--Spread operator-->
+   <script>
+    const nums1 = [1,2,3,4]
+    console.log(nums1)
+    const nums2 = [... nums1, 5]
+    console.log(nums2)
+
+    const persona = {
+        name: 'Seba',
+        country: 'Argentina'
+    }
+    
+    
+    const persona2 = {
+        ...persona,
+        name:'Juan',
+        age: 26
+}
+console.log(persona)
+console.log(persona2)        
+   </script>
+   <!--Desestructuracón-->
+   <script>
+       const edades = [12,23,34,41]
+
+       const[edadJuan, edadHernan, edadSeba, edadMatias] = edades
+       console.log(edadHernan)
+   </script>
+   <!--Desestructuracón de objetos-->
+   <script>
+    const individuo1 = { 
+        name: 'Pablo',
+        age: 30
+    }
+
+    const individuo2 = {
+        name: 'Ivan',
+        age: 35
+    }    
+    console.log(individuo1.name)
+
+    const {age: agePablo } = individuo1
+
+    console.log(agePablo)
+
+    const { age: ageIvan } = individuo2
+
+    console.log(ageIvan)
+   </script> 
+</body>
+</html>

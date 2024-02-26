@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Navbar from "./components/navbar/navbar"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+//EL IMPORT BUTTON Y EL IMPORT ItemCount NO LOS VOY A UTILIZAR POR AHORA.
+//LOS DEJO COMENTADOS POR SI LOS USO DESPUÉS.
+//import Button from "./components/Button/Button"
+//import ItemCount from "./components/itemCount/itemCount"
 
 function App() {
-  const [count, setCount] = useState(0)
-  console.log("render")
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar/>
+     
+     <h1>BEATIFUL CLOTHES</h1>
+     <ItemListContainer greeting='¡¡¡Bienvenidos!!!'/>
+     <nav style={{textAlign:'center'}}>
+        <a style={{ color: 'red',fontSize: 21 }}>Remeras_  </a>
+        <a style={{ color: 'red',fontSize: 21 }}> Buzos_  </a>
+        <a style={{ color: 'red',fontSize: 21 }}>Jeans_</a>
+     </nav>
     </>
   )
 }
 
 export default App
+
+/* A LAS SIGUIENTES LÍNEAS DE CODIGO LAS DEJO COMENTADAS
+NO LAS VOY A USAR POR EL MOMENTO*/ 
+
+/*<ItemCount initialValue={1} min={0} max={10}/>
+<ItemCount initialValue={10} min={5} max={15}/>
+<ItemCount initialValue={100} min={95} max={105}/> 
+
+<a>prueba</a>/}
+<Button label='Home' textColor='red'  className='btn btn-primary' callback={() => console.log('hice click en Home')} />
+<Button label='Contact' textColor='blue' background='orange' className='btn btn-primary' callback={() => console.log('hice click en Contact')} />
+<Button label='About' textColor='white' className='btn btn-primary' callback={() => console.log('hice click en About')}/> 
+*/
