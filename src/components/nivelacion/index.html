@@ -6,11 +6,57 @@
     <title>Static Template</title>
 </head>
 <body>
-   <h1>
-    Welcome to Coderhouse
-   </h1>
-   <!--Spread operator-->
+    <!--PROMESAS-->
+    <h1>
+        Promesas
+    </h1>
    <script>
+    const irAlRestaurante = () => {
+        return 'llegue al restaurante'
+    }
+
+    const pedirComida = () => {
+     return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('recibo comida')
+            //reject('no hay comida')
+          },1000)
+        })
+    }
+        
+    const comer = () => {
+        return 'termino de comer'
+    }
+    
+    const pagar = () => {
+        return 'terminar de pagar'
+    }
+    
+    const irse = () => {
+        return 'llegar a casa'
+    }
+    
+    console.log(irAlRestaurante ())
+    pedirComida().then(result => {
+        console.log('acción completada: ', result)
+        console.log(comer())
+        console.log(pagar())
+        console.log(irse())
+    }, result => {
+      console.log('acción rechazada: ', result) //-> forma correcta
+    })    
+    .catch(error => {    // no está del todo mal pero es mejor la de arriba
+        console.log('error: ', error) 
+    })    
+    .finally(() => {
+        console.log(irse())
+    })
+    
+    console.log('charlo con mi acompañante')
+   
+    </script>
+     <!--Spread operator-->
+    <script>    
     const nums1 = [1,2,3,4]
     console.log(nums1)
     const nums2 = [... nums1, 5]
@@ -58,5 +104,8 @@ console.log(persona2)
 
     console.log(ageIvan)
    </script> 
+   <script>
+    console.log(fetch(''))
+   </script>
 </body>
 </html>

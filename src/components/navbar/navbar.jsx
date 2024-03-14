@@ -1,49 +1,36 @@
 import classes from './Navbar.module.css'
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
-        <header className={classes.header}>
-         <h4 style={{ color: 'red',fontSize:'10'}}>¡Buenas!</h4>
-         <nav>
-          <a className= 'btn btn-primary'>¡¡¡Nosotros Somos!!!</a>
-         </nav>
-      <CartWidget />
-        </header>
-       
-    )
-}       
-    
-    export default Navbar
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import classes from './Navbar.module.css'
-
-const navbar = () => {
-    //console.log(classes)
-    return (
-        <header className={classes.header}>
-         <h4 style={{ color: 'red',fontSize:20}}>la indumentaria que necesitas</h4>
-         <nav>
-            <a className='btn btn-primary'>Remeras</a>
-            <a>Pantalones</a>
-            <a>Buzos</a>
-         </nav>
+        <header>
+            <CartWidget />
+            <h1 style={{ color: 'white'}}>BEAUTIFUL CLOTHES</h1>
+            <nav>
+              <Link style={{color:'red'}} to='/category/remera'>remeras_</Link>
+              <Link style={{color:'red'}} to='/category/buzo'>buzos_</Link>
+              <Link style={{color:'red'}} to='/category/pantalon'>pantalones_</Link>
+              <Link style={{color:'red'}} to='/category/camisa'>camisas_</Link>  
+            </nav>
+            
         </header>
     )
 }
 
-export default navbar*/
+export default Navbar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
