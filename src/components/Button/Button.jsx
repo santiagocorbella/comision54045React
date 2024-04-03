@@ -1,4 +1,4 @@
-const Button = (props) => {
+/*const Button = (props) => {
     console.log(props)
     return <button  
     onClick={props.callback}
@@ -7,5 +7,39 @@ const Button = (props) => {
     {props.text}
     </button>
 } 
+
+export default Butto*/
+
+
+    //useEffect(() => {
+     // console.log(buttonRef)
+     // const boton = buttonRef.current
+
+     //const handleClick = () => console.log('hice click')
+
+     // boton.addEventListener('click', handleClick)
+
+     //return () => {
+    //boton.removeEventListener('click', handleClick)
+    //    }    
+        
+    //},[])
+
+    //EVENTOS:
+import {useEffect, useRef } from "react"
+
+const Button = () => {
+const buttonRef = useRef()
+
+    
+    const handleClick = (e) => {
+        console.log(e) 
+    }
+
+    console.log(buttonRef)
+    return (
+        <button ref={buttonRef} onClick={handleClick}>boton</button>
+    )
+}
 
 export default Button

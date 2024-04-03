@@ -2,6 +2,7 @@ import classes from './Navbar.module.css'
 import CartWidget from "../CartWidget/CartWidget"
 import { Link } from "react-router-dom"
 
+
 const Navbar = () => {
     return (
         <header>
@@ -15,6 +16,7 @@ const Navbar = () => {
             </nav>
             
         </header>
+      
     )
 }
 

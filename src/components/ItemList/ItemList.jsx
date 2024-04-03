@@ -1,7 +1,12 @@
 import Item from "../Item/Item"
 
 const ItemList = ({ products }) => {
+console.log(products)
+
+
     return (
+<div style={{ display: 'flex', flexDirection:'column'}} onClick={() => console.log('hice click en itemList')}>
+     {
       <section style={{color:'white'}}>
         {
             products.map(product => {
@@ -9,8 +14,11 @@ const ItemList = ({ products }) => {
             })
         } 
        </section>
+      }     
+     </div> 
      )
   }
+  
   export default ItemList               
         
         
