@@ -1,16 +1,14 @@
-
 import { useState, useEffect} from "react"
 //import { getProducts, getProductsByCategory } from '../../asyncMock'
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import { useNotification } from "../../notification/hooks2/useNotification"
-
 import { getDocs, collection, query, where} from 'firebase/firestore'
-
 import { db } from "../../services/firebase/firebaseConfig"
 
+
  
-console.log("hola")
+
  const ItemListContainer = ({ greeting }) => {
     const[products, setProducts] = useState()
     const[render, setRender] = useState(false)
@@ -18,25 +16,24 @@ console.log("hola")
     const { categoryId } = useParams()
 
     const { showNotification } = useNotification()
- console.log(categoryId)
-    /*useEffect(() => {
+ 
+    useEffect(() => {
       setTimeout(() => {
       setRender(prev => !prev)
+      setLoading(render)
+       } , 2000)  
+ }, [])
+       
       
-      }, 2000)  
-      }, [])*/
-        
-     useEffect(() => {
-      console.log("entró")
-     }),
+    
     useEffect(() => {
-console.log("hola")
-      /*const productsCollection = categoryId ? (
+
+      const productsCollection = categoryId ? (
            query(collection(db, 'products'), where('category', '==', categoryId))
       ) : (     
-        query(collection(db, 'products'))
+        collection(db, 'products')
       ) 
-      console.log(productsCollection)    
+       console.log(productsCollection)   
       getDocs(productsCollection)
           .then(querySnapshot => {
               const productsAdapted = querySnapshot.docs.map(doc => {
@@ -44,21 +41,28 @@ console.log("hola")
               
               return { id: doc.id, ...data}
             })
-          console.log(productsAdapted)
+          
           setProducts(productsAdapted)
+          console.log(productsAdapted)
          })
         .catch(() => {
             showNotification('error', 'hubo un error cargando los productos')
-        })*/
-     
-       },[])
-         console.log(products)
+        })
+
+       
+       },[categoryId])
+      
+       if(loading) {
+        return  <h4 style={{ color: 'orange'}}>Cargando listado de productos...</h4>
+    }
+         
          return (
-         <div style= {{}} onClick={()=> console.log('hice click en itemListcontainer')}>
-          <main>
+         <div style= {{}} onClick={() => console.log('hice click en itemListcontainer')}>
+         <main>
           <h1>{greeting}</h1>
-           
-          </main>
+          <ItemList products={products}/>
+         </main>
+          
          </div> 
       )
       }  
@@ -66,7 +70,6 @@ console.log("hola")
     export default ItemListContainer
     
 
-  /*DEL REPOSITORIO DEL PROFESOR 
-  <ItemList products={products}/>
-  */
+
   
+         

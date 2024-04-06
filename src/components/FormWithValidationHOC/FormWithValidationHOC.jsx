@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-const withFormValidation =  (wrappedComponent) => {
+const withFormValidation = (WrappedComponent) => {
 
-    const WithFormValidation= (props) => {
+    const WithFormValidation = (props) => {
         const [errors, setErrors] = useState({})
 
         const validateForm = () => {
@@ -16,29 +16,32 @@ const withFormValidation =  (wrappedComponent) => {
             
              setErrors(newErrors)
         }
+
         return (
-            <wrappedComponent
+            <WrappedComponent
             {...props}
             errors={errors}
             validateForm={validateForm}
             />
         )           
     }
-    return withFormValidation
+
+    return WithFormValidation
 }
    
 const Form = ({ formData, onChange, errors, validateForm}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         validateForm && validateForm();
+
 } 
 
 return (
     <form onSubmit={handleSubmit}>
          <div>
-             <label>nombre:</label>
-    <input type= "text" name="nombre" value={formData.nombre} onChange={(e) => onChange} />
-    {errors && errors.nombre && <div>{errors.nombre}</div>}
+             <label>Nombre:</label>
+    <input type= "text" name="nombre" value={formData.nombre} onChange={(e) => onChange(e)} />
+    {errors && errors.nombre && <div>{errors.nombre}</div> }
          </div>
          <div>
              <label>Email:</label>
@@ -49,21 +52,31 @@ return (
         </form>
         
   ) 
-}     
+}
+
 const FormWithValidation = withFormValidation(Form)
 
 const FormWithValidationHOC = () => {
   const[formData, setFormData] = useState({
         nombre: '',
-        email: '',
+        email: ''
     })
-}
+
     const handleChange = (event) => {
         setFormData({
             ...formData,
             [event.target.name]: event.target.value
         })
 }
+
+return (
+    <div>
+        <FormWithValidation formData={formData} onChange={handleChange} />
+            <Form formData={formData} onChange={handleChange} />
+    </div>
+  )
+}   
+
 
 export default FormWithValidationHOC 
     

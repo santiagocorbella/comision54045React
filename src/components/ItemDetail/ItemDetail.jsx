@@ -1,32 +1,3 @@
-
-//CLASES DE LA 1 A LA 9:
-
-//import ItemCount from "../itemCount/itemCount"
-//import { useState } from "react"
-//import { Link } from "react-router-dom"
-
-
-
-
-/*const ItemDetail = ({ name, category, price, img, description, stock }) => {
-  
-  return (
-  
-    <article>
-        <img src={img} style={{ width: 100}}/>
-        <h3 style={{color:'white'}}>{name}</h3>
-        <h4 style={{color:'white'}} >Categoria: {category}</h4>
-        <h4 style={{color:'white'}} >${price}</h4>
-        <h4 style={{color:'white'}} >Descripcion: {description}</h4>
-        <ItemCount stock={stock}/>
-    </article>
-   )
- }
- 
- export default ItemDetail
-*/ 
- //EVENTOS: CLASE 10
-
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
